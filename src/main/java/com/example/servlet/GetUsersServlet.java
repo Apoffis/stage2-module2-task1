@@ -14,9 +14,7 @@ public class GetUsersServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.setContentType("text/html");
-        Warehouse warehouse = Warehouse.getInstance();
-        req.setAttribute("users", warehouse.getUsers());
+        req.setAttribute("users", Warehouse.getInstance().getUsers());
         getServletContext().getRequestDispatcher("/jsp/users.jsp").forward(req, resp);
     }
 
