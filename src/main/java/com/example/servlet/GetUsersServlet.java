@@ -12,9 +12,11 @@ import java.io.IOException;
 @WebServlet("/users")
 public class GetUsersServlet extends HttpServlet {
 
+    Warehouse warehouse = Warehouse.getInstance();
+
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("users", Warehouse.getInstance().getUsers());
+        req.setAttribute("users", warehouse.getUsers());
         getServletContext().getRequestDispatcher("/jsp/users.jsp").forward(req, resp);
     }
 
